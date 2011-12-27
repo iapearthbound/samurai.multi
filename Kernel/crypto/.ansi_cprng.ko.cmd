@@ -1,0 +1,1 @@
+cmd_crypto/ansi_cprng.ko := /home/earthbound/prebuilt/linux-x86/toolchain/arm-eabi-4.4.0/bin/arm-eabi-ld -EL -r  -T /home/earthbound/samurai.multi/Kernel/scripts/module-common.lds --build-id -o crypto/ansi_cprng.ko crypto/ansi_cprng.o crypto/ansi_cprng.mod.o

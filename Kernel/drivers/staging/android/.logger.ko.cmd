@@ -1,0 +1,1 @@
+cmd_drivers/staging/android/logger.ko := /home/earthbound/prebuilt/linux-x86/toolchain/arm-eabi-4.4.0/bin/arm-eabi-ld -EL -r  -T /home/earthbound/samurai.multi/Kernel/scripts/module-common.lds --build-id -o drivers/staging/android/logger.ko drivers/staging/android/logger.o drivers/staging/android/logger.mod.o

@@ -1,0 +1,1 @@
+cmd_sound/soc/codecs/snd-soc-wm8994.o := /home/earthbound/prebuilt/linux-x86/toolchain/arm-eabi-4.4.0/bin/arm-eabi-ld -EL    -r -o sound/soc/codecs/snd-soc-wm8994.o sound/soc/codecs/victory/wm8994_samsung.o sound/soc/codecs/victory/wm8994_aries.o sound/soc/codecs/victory/wm8994_voodoo.o 

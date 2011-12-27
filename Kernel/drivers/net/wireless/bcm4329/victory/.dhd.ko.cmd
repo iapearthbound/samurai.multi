@@ -1,0 +1,1 @@
+cmd_drivers/net/wireless/bcm4329/victory/dhd.ko := /home/earthbound/prebuilt/linux-x86/toolchain/arm-eabi-4.4.0/bin/arm-eabi-ld -EL -r  -T /home/earthbound/samurai.multi/Kernel/scripts/module-common.lds --build-id -o drivers/net/wireless/bcm4329/victory/dhd.ko drivers/net/wireless/bcm4329/victory/dhd.o drivers/net/wireless/bcm4329/victory/dhd.mod.o

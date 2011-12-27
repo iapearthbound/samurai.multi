@@ -1,0 +1,9 @@
+drivers/video/samsung_mipi/Kconfig:66:warning: choice value used outside its choice group
+drivers/video/samsung/s3cfb.c: In function 's3cfb_map_video_memory':
+drivers/video/samsung/s3cfb.c:307: warning: assignment makes pointer from integer without a cast
+drivers/video/samsung/s3cfb.c: In function 's3cfb_sysfs_show_lcd_power':
+drivers/video/samsung/s3cfb.c:1152: warning: 'return' with no value, in function returning non-void
+drivers/video/samsung/s3cfb.c: In function 's3cfb_probe':
+drivers/video/samsung/s3cfb.c:1303: warning: too many arguments for format
+drivers/video/samsung/s3cfb.c: At top level:
+drivers/video/samsung/s3cfb.c:312: warning: 's3cfb_map_default_video_memory' defined but not used

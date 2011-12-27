@@ -1,0 +1,54 @@
+scripts/kconfig/conf -s arch/arm/Kconfig
+drivers/video/samsung_mipi/Kconfig:66:warning: choice value used outside its choice group
+  CHK     include/linux/version.h
+  CHK     include/generated/utsrelease.h
+  CHK     include/generated/kernelversion.h
+make[1]: `include/generated/mach-types.h' is up to date.
+  CALL    scripts/checksyscalls.sh
+  CHK     include/generated/compile.h
+  GEN     usr/initramfs_data.cpio.lzma
+  GZIP    kernel/config_data.gz
+  IKCFG   kernel/config_data.h
+  CC      kernel/configs.o
+  LD      kernel/built-in.o
+  CC      drivers/video/samsung/s3cfb.o
+drivers/video/samsung/s3cfb.c: In function 's3cfb_map_video_memory':
+drivers/video/samsung/s3cfb.c:307: warning: assignment makes pointer from integer without a cast
+drivers/video/samsung/s3cfb.c: In function 's3cfb_sysfs_show_lcd_power':
+drivers/video/samsung/s3cfb.c:1152: warning: 'return' with no value, in function returning non-void
+drivers/video/samsung/s3cfb.c: In function 's3cfb_probe':
+drivers/video/samsung/s3cfb.c:1303: warning: too many arguments for format
+drivers/video/samsung/s3cfb.c: At top level:
+drivers/video/samsung/s3cfb.c:312: warning: 's3cfb_map_default_video_memory' defined but not used
+  LD      drivers/video/samsung/built-in.o
+  LD      drivers/video/built-in.o
+  LD      drivers/built-in.o
+  AS      usr/initramfs_data.lzma.o
+  LD      usr/built-in.o
+  LD      vmlinux.o
+  MODPOST vmlinux.o
+WARNING: modpost: Found 11 section mismatch(es).
+To see full details build your kernel with:
+'make CONFIG_DEBUG_SECTION_MISMATCH=y'
+  GEN     .version
+  CHK     include/generated/compile.h
+  LD      .tmp_vmlinux1
+  KSYM    .tmp_kallsyms1.S
+  AS      .tmp_kallsyms1.o
+  LD      .tmp_vmlinux2
+  KSYM    .tmp_kallsyms2.S
+  AS      .tmp_kallsyms2.o
+  LD      vmlinux
+  SYSMAP  System.map
+  SYSMAP  .tmp_System.map
+  OBJCOPY arch/arm/boot/Image
+  Kernel: arch/arm/boot/Image is ready
+  Building modules, stage 2.
+  GZIP    arch/arm/boot/compressed/piggy.gzip
+  SHIPPED arch/arm/boot/compressed/lib1funcs.S
+  AS      arch/arm/boot/compressed/lib1funcs.o
+  MODPOST 10 modules
+  AS      arch/arm/boot/compressed/piggy.gzip.o
+  LD      arch/arm/boot/compressed/vmlinux
+  OBJCOPY arch/arm/boot/zImage
+  Kernel: arch/arm/boot/zImage is ready
