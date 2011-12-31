@@ -1,1 +1,0 @@
-cmd_drivers/gpu/pvr/built-in.o :=  /home/earthbound/prebuilt/linux-x86/toolchain/arm-eabi-4.4.0/bin/arm-eabi-ld -EL    -r -o drivers/gpu/pvr/built-in.o drivers/gpu/pvr/pvrsrvkm.o drivers/gpu/pvr/s3c_lcd.o drivers/gpu/pvr/s3c_bc.o 
