@@ -1,7 +1,7 @@
 make -f scripts/Makefile.build obj=scripts/basic
   gcc -Wp,-MD,scripts/basic/.fixdep.d -Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer     -o scripts/basic/fixdep scripts/basic/fixdep.c  
-  gcc -Wp,-MD,scripts/basic/.docproc.d -Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer     -o scripts/basic/docproc scripts/basic/docproc.c  
   gcc -Wp,-MD,scripts/basic/.hash.d -Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer     -o scripts/basic/hash scripts/basic/hash.c  
+  gcc -Wp,-MD,scripts/basic/.docproc.d -Wall -Wmissing-prototypes -Wstrict-prototypes -O2 -fomit-frame-pointer     -o scripts/basic/docproc scripts/basic/docproc.c  
 rm -f .tmp_quiet_recordmcount
 mkdir -p include/linux include/config
 make -f scripts/Makefile.build obj=scripts/kconfig victory_samurai_defconfig
