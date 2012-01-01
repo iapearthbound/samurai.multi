@@ -287,4 +287,9 @@ config CPU_FREQ_GOV_LAGFREE
           For details, take a look at linux/Documentation/cpu-freq.
           If in doubt, say N.
 
+config SEC_LIMIT_MAX_FREQ
+	bool "Limit Max Freq"
+	help
+		Limit Max Freq
+
 endif	# CPU_FREQ
