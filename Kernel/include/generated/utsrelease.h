@@ -1,1 +1,0 @@
-#define UTS_RELEASE "2.6.35.7.SAMURAI.CM.MTD.RONIN5.cm7-g9b0c3f1-dirty"
