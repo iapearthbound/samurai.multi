@@ -597,7 +597,7 @@ static int s5pv210_cpufreq_target(struct cpufreq_policy *policy,
 	static bool first_run = true;
 	int ret = 0;
 	unsigned long arm_clk;
-	unsigned int index, reg, arm_volt, int_volt;
+	unsigned int index, old_index, reg, arm_volt, int_volt;
 	unsigned int pll_changing = 0;
 	unsigned int bus_speed_changing = 0;
 
@@ -668,6 +668,65 @@ static int s5pv210_cpufreq_target(struct cpufreq_policy *policy,
 	 */
 	if (s3c_freqs.freqs.new == s3c_freqs.freqs.old && !first_run)
 		goto out;
+
+
+#define SMOOTH_STEP_UP 1 /* So what ;-) */ 
+#ifdef SMOOTH_STEP_UP 
+  if (cpufreq_frequency_table_target(policy, freq_table, 
+      s3c_freqs.freqs.old, relation, &old_index)) { 
+    ret = -EINVAL; 
+    goto out; 
+  } 
+  /*    SGS2  SGS1  
+   * L0 1200  1500 
+   * L1 1000  1400 
+   * L2  800  1300 
+   * L3  500  1200 
+   * L4       1100 
+   * L5       1000 
+   * L6        900 
+   */ 
+  /* No direct jump to 1.5Ghz */ 
+  if (index == L0) { 
+    if (old_index > L1) 
+      index = L1; 
+    if (old_index > L2) 
+      index = L2; 
+  } 
+  /* No direct jump to 1.4Ghz */ 
+  if (index == L1) { 
+    if (old_index > L2) 
+      index = L2; 
+    if (old_index > L3) 
+      index = L3; 
+  } 
+  /* No direct jump to 1.3Ghz */ 
+  if (index == L2) { 
+    if (old_index > L3) 
+      index = L3; 
+    if (old_index > L4) 
+      index = L4; 
+  } 
+  /* No direct jump to 1.2Ghz */ 
+  if (index == L3) { 
+    if (old_index > L4) 
+      index = L4; 
+    if (old_index > L5) 
+      index = L5; 
+  } 
+  /* No direct jump to 1.1Ghz */ 
+  if (index == L4) { 
+    if (old_index > L5) 
+      index = L5; 
+    if (old_index > L6) 
+      index = L6; 
+  } 
+  /* No direct jump to 1Ghz, but don't be so harsh this time */ 
+  if (index == L5) { 
+    if (old_index > L5) 
+      index = L5; 
+  } 
+#endif 
 
 	arm_volt = (dvs_conf[index].arm_volt - (exp_UV_mV[index] * 1000));
 	freq_uv_table[index][2] = (int)(arm_volt/1000);
